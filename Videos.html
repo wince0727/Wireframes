@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Videos</title>
+     <link rel="stylesheet" type="text/css" href="./style.css">
+
+     <style>
+
+        :root{
+            --purple: #8e44ad;
+        }
+
+        *{
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            font-size: 62.5%;
+        }
+
+        .container .heading{
+            font-size: 3rem;
+            margin:2rem 0;
+            text-transform: capitalize;
+            color: var(--purple);
+            font-family: Verdane, Geneva, Tahoma, sans-serif;       
+            letter-spacing: .2rem; 
+            text-align: center;
+            text-shadow: 0 .3rem .5rem rgba(0,0,0.5);
+
+        }
+
+        .videos-container{
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding-left: 100px;
+        }
+
+        .videos-container .videos{
+            height:25rem;
+            width: 35rem;
+            margin:2rem;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+            overflow: hidden;
+            border-radius: 1rem;
+            object-fit: cover;
+        }
+        .videos-container .videos videos{
+            height:100%;
+            width: 100%;
+            object-fit: cover;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .videos-container .videos videos:hover{
+            transition: .2s linear;
+            transform: scale(1.3);
+        }
+
+        .videos-container .videos .active{
+            position: fixed;
+            top:50%; left: 50%;
+            transform: translate(-50%, -50%);
+            height: auto;
+            width: 80%;
+            box-shadow: 0 0 0 100vh rgba(0,0,0,.7);
+            z-index: 1;
+        }
+
+        .videos-container .videos .active:hover{ 
+            transition:none;
+            transform: translate(-50%, -50%) scale(1);
+
+        }
+
+
+
+
+     </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="heading">videos</div>
+
+        <div class="videos-container">
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/668nUCeBHyY?si=BWeRfDV5Srf0HoEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/MFLVmAE4cqg?si=56-r2owazwn1Ck5r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-IEVIJGZto4?si=OLHgjMNK0WJ2Pq23" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Eoo4HzILB-M?si=kNxZp4BepCFT8YGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/RvreULjnzFo?si=TkrCc_yMlsYNIyss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="videos">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8_k0X9iwr6c?si=f75Af2nIm-ACly2T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        
+        
+        </div>
+    </div>
+
+    <script>
+
+        var videos = document.querySelectorAll('videos')
+
+        videos.forEach(play => play.addEventListener('click', () =>{
+
+            play.classList.toggle('active');
+
+            if(play.paused){
+                play.play();
+            }else{
+                play.pause();
+                play.currentTime = 0;
+            }
+
+        }));
+
+
+
+    </script>
+    
+</body>
+</html>
